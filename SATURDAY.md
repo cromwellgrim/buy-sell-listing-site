@@ -4,7 +4,7 @@
 # BROWSE - GET users can browse through the site
 - [ ] see their profile
 - [ ] search through listings
-- [ ] featured listings (or is this home page)
+- [ ] featured listings on the home page)
 # READ - GET users pull up their personal things
 - [ ] users have access to a comment field under a listing
 - [ ] user can see their favourited listings
@@ -14,12 +14,20 @@
 # ADD - POST only admins can add stuff
 - [ ] admin can approve and submit a listing
 # DELETE POST
-- [ ] do we need a delete?
+- [ ] admins only have access to remove items
 
-## RESTful
-- [ ] RESTful
+## DATABASE
+# schema for database
+- [ ] users table
+- [ ] listing table
+- [ ] favourites table
+- [ ] comments table?
+# seeds
+- [ ] users and admins
+- [ ] listings
+- [ ] prebuilt users with users
 
 ## MVP
-- [ ] Minimal Viable Product - 
+- [ ] Minimal Viable Product
 - [ ] Minimum Viable Demo MVD
 - [ ] If you don't show it, don't build it
