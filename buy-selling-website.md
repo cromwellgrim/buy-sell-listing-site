@@ -32,6 +32,7 @@ Optional Requirements:
 Option 8: Buy/Sell Listing Website
 - [ ] An app where you can put different types of things up for sale. You can pick a specific niche of
       items to sell for the app (a cars site, a shoes site, etc). This lets buyers find the items they are looking for quickly, and easily contact sellers.
+- [ ] stretch: listings will have a timestamp of when the listing was posted
 
 Users (buyers) can:
 - [ ] As a user, I want to have a profile with my id #, name, and email associated with my account because I want the site to remember me
@@ -43,6 +44,7 @@ Users (buyers) can:
 - [ ] As a user, I want to buy items by contacting the seller directly because it makes it a clearer purchase
 - [ ] As a user, I want to send messages to the seller because I want to be able to negotiate for my purchase
 - [ ] stretch: As a user, I want to be able to rate sellers because I want to know who is trustworthy and good to deal with
+- [ ] stretch: As a user, I want the ability to become an admin by clicking a premium user button on my profile because I want to sell more things
 
 Admins (sellers) can:
 - [ ] As an admin, I want to post items which can be seen by others
@@ -50,6 +52,7 @@ Admins (sellers) can:
 - [ ] As an admin, I want to mark sold items as SOLD!
 - [ ] As an admin, I want to send a message to the user about sale conditions via app, email, or text back on negotiations in buying the
       said item
+- [ ] stretch: As an admin, I can approve user requests to become admins because I want to control who becomes an admin
 
 ### Pick out all the nouns
 * nouns === tables
