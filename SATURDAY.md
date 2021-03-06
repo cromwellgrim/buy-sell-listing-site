@@ -1,33 +1,33 @@
-### SATURDAY
+# SATURDAY
 
 ## ROUTING
-# BROWSE - GET users can browse through the site
+### BROWSE - GET users can browse through the site
 - [ ] see their profile
 - [ ] search through listings
 - [ ] featured listings on the home page)
-# READ - GET users pull up their personal things
+### READ - GET users pull up their personal things
 - [ ] users have access to a comment field under a listing
 - [ ] user can see their favourited listings
-# EDIT - POST users/admins can adjust profiles - admins adjust listings
+### EDIT - POST users/admins can adjust profiles - admins adjust listings
 - [ ] users can adjust their profile
 - [ ] admin can change the status of a listing to sold
-# ADD - POST only admins can add stuff
+### ADD - POST only admins can add stuff
 - [ ] admin can approve and submit a listing
-# DELETE POST
+### DELETE POST
 - [ ] admins only have access to remove items 
 
 ## DATABASE
-# schema for database
+### schema for database
 - [ ] users table
 - [ ] listing table
 - [ ] favourites table
 - [ ] comments table?
-# seeds
+### seeds
 - [ ] users and admins
 - [ ] listings
 - [ ] prebuilt users with users
 
-## MVP
+### MVP
 - [ ] users can view listings
 - [ ] users can comment on listings
 - [ ] users can favourite listings
