@@ -14,7 +14,7 @@
 # ADD - POST only admins can add stuff
 - [ ] admin can approve and submit a listing
 # DELETE POST
-- [ ] admins only have access to remove items
+- [ ] admins only have access to remove items 
 
 ## DATABASE
 # schema for database
@@ -28,6 +28,9 @@
 - [ ] prebuilt users with users
 
 ## MVP
-- [ ] Minimal Viable Product
-- [ ] Minimum Viable Demo MVD
-- [ ] If you don't show it, don't build it
+- [ ] users can view listings
+- [ ] users can comment on listings
+- [ ] users can favourite listings
+- [ ] admins can respond in comments
+- [ ] admins access listings and post approved listings and mark sold
+- [ ] admins delete listings after a certain time (or this could be automated)
