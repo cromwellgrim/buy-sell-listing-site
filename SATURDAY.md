@@ -25,10 +25,11 @@
 ### seeds
 - [ ] users and admins
 - [ ] listings
-- [ ] prebuilt users with users
+- [ ] prebuilt favourites attached to existing listings/users
 
 ### MVP
 - [ ] users can view listings
+- [ ] users can search through listings
 - [ ] users can comment on listings
 - [ ] users can favourite listings
 - [ ] admins can respond in comments
