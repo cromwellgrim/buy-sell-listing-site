@@ -5,7 +5,7 @@ INSERT INTO users (name, email, is_admin) VALUES ('Baloo', 'barenecessities@jung
 
 INSERT INTO users (name, email, is_admin) VALUES ('Jean Batten', 'nzflyer@kiwi.com', TRUE);
 
-INSERT INTO users (name, email, is_admin) VALUES ('Hans Solo', 'flyingsolo@milleniumfalcon.com', TRUE);
+INSERT INTO users (name, email, is_admin) VALUES ('Han Solo', 'flyingsolo@milleniumfalcon.com', TRUE);
 
 INSERT INTO users (name, email, is_admin) VALUES ('Pete Mitchell', 'maverick@usaf.gov', TRUE);
 
