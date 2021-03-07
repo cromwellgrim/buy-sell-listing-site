@@ -1,4 +1,4 @@
-# SATURDAY
+# SATURDAY/SUNDAY
 
 ## ROUTING
 ### BROWSE - GET users can browse through the site
@@ -7,23 +7,23 @@
 ### READ - GET users pull up their personal things
 - [ ] users have access to a comment field under a listing
 - [ ] user can see their favourited listings
-### EDIT - POST users/admins can adjust profiles - admins adjust listings
+### EDIT - POST users/sellers can adjust profiles - sellers adjust listings
 - [ ] users can adjust their profile
-- [ ] admin can change the status of a listing to sold
-### ADD - POST only admins can add stuff
-- [ ] admin can approve and submit a listing
+- [ ] seller can change the status of a listing to sold
+### ADD - POST only sellers can add stuff
+- [ ] seller can approve and submit a listing
 ### DELETE POST
-- [ ] admins only have access to remove items 
+- [ ] sellers only have access to remove items 
 
 ## DATABASE
 ### schema for database
-- [ ] users table
-- [ ] listing table
-- [ ] favourites table
-- [ ] comments table?
+- [X] users table
+- [X] listing table
+- [X] favourites table
+- [X] comments table
 ### seeds
-- [ ] users and admins
-- [ ] listings
+- [X] users and sellers
+- [X] listings
 - [ ] prebuilt favourites attached to existing listings/users
 
 ### MVP
@@ -31,6 +31,7 @@
 - [ ] users can search through listings
 - [ ] users can comment on listings
 - [ ] users can favourite listings
-- [ ] admins can respond in comments
-- [ ] admins access listings and post approved listings and mark sold
-- [ ] admins delete listings after a certain time (or this could be automated)
+- [ ] sellers can respond in comments
+- [ ] sellers access listings and post approved listings and mark sold
+- [ ] sellers delete listings after a certain time (or this could be
+      automated)
