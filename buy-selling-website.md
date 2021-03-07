@@ -35,11 +35,11 @@ Option 8: Buy/Sell Listing Website
 - [ ] stretch: listings will have a timestamp of when the listing was posted
 
 Users (buyers) can:
-- [ ] As a user, I want to have a profile with my id #, name, and email associated with my account because I want the site to remember me
-- [ ] As a user, I want to have links to my profile, listings, search, and favourite items in my navbar because I want to be able to
+- [ ] As a user, I want to have a profile with my id # and name associated with my account because I want the site to remember me
+- [ ] As a user, I want to have links to a search, and my favourite items in my navbar because I want to be able to
       access them quickly and easily
 - [ ] As a user, I want to see featured items on the main feed because I want to see specific items in my interests
-- [ ] As a user, I want to filter my search by price and type of aircraft because I only want to see certain aircraft in my budget
+- [ ] As a user, I want to filter my search by price and make/model of aircraft because I only want to see certain aircraft in my budget
 - [ ] As a user, I want to favourite items because I want to check up on them later
 - [ ] As a user, I want to buy items by contacting the seller directly because it makes it a clearer purchase
 - [ ] As a user, I want to send messages to the seller because I want to be able to negotiate for my purchase
@@ -50,15 +50,15 @@ Admins (sellers) can:
 - [ ] As an admin, I want to post items which can be seen by others
 - [ ] As an admin, I want to remove items from the site if it is no longer for sale or any other reason
 - [ ] As an admin, I want to mark sold items as SOLD!
-- [ ] As an admin, I want to send a message to the user about sale conditions via app, email, or text back on negotiations in buying the
+- [ ] As an admin, I want to send a message to the user about sale conditions app, email on negotiations in buying the
       said item
-- [ ] stretch: As an admin, I can approve user requests to become admins because I want to control who becomes an admin
 
 ### Pick out all the nouns
 * nouns === tables
-* users [id, name, email, is_admin]
+* users [id, name, is_admin]
 * favorites [id, user_id, listing_id]
-* listings [id, user_id, title, description, price, thumbnail_photo, year, make, model]
+* listings [id, seller_id, title, description, price, thumbnail_photo, year, make, model]
+* comments [ids, buyer_id, seller_id, text]
 * create the ERD
 
 ### Routes
@@ -66,15 +66,12 @@ Admins (sellers) can:
 
 RESTful
 
-Browse  GET  /users
-Read    GET  /users/:id
-Edit    POST /users/:id/edit
-Add     POST /users
-<!-- Delete  POST /users/:id/delete -->
-
-Browse GET /map/:map_id/pins
-GET /users/:user_id/items
-
+Browse  GET  /
+Read    GET  /:id
+Edit    POST /:id
+Add     POST /:id 
+Delete  POST /:id
+<!-- GET/POST reference ejs files in server file. what ejs files will we have? -->
 ### MVP
 * Minimal Viable Product
 * Minimum Viable Demo MVD
