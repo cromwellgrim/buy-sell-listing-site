@@ -2,7 +2,6 @@
 
 ## ROUTING
 ### BROWSE - GET users can browse through the site
-- [ ] see their profile
 - [ ] search through listings
 - [ ] featured listings on the home page)
 ### READ - GET users pull up their personal things
