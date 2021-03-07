@@ -1,0 +1,36 @@
+<header>
+  <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+    <a class="navbar-brand" href="/urls">TinyApp</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup"
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-item nav-link" href="/urls">My URLs</a>
+        <a class="nav-item nav-link" href="/urls/new">Create New URL</a>
+      </div>
+    </div>
+  <% if(typeof user === "undefined"){ %>
+    <div class="card-center" style="justify-content:right">
+      <form class="form-inline" action="/register" method="GET">
+          <button type="submit" class="btn btn-dark">register</button>
+          <p style="justify-content: right;" color="white"></p>
+      </form>
+    </div>
+    <div class="card-center" style="justify-content:right">
+      <form class="form-inline" action="/login" method="GET">
+          <button type="submit" class="btn btn-dark">login</button>
+          <p style="justify-content: right;" color="white"></p>
+      </form>
+    </div>
+  <% } else{ %>
+  <div class="card-center" style="text-align:right">
+    <form class="form-inline" action="/logout" method="POST" move="right">
+        <input type="hidden" name="user">
+        <p style="color: whitesmoke;"><%= user.email %></p>
+        <button type="submit" class="btn btn-dark">logout</button>
+    </form>
+    </div>
+    <% } %>
+  </nav>
+</header>
