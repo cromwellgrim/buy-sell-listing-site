@@ -1,5 +1,5 @@
 -- Users table seeds here (Example)
-INSERT INTO users (name, is_seller) VALUES ('Elon musk', TRUE);
+INSERT INTO users (name, is_seller) VALUES ('Elon Musk', TRUE);
 
 INSERT INTO users (name, is_seller) VALUES ('Baloo', TRUE);
 

@@ -10,12 +10,15 @@ const router  = express.Router();
 
 module.exports = (db) => {
   router.get("/", (req, res) => {
-    db.query(`SELECT * FROM users;`)
+    // console.log("res", res.rows)
+   db.query(`SELECT * FROM users WHERE users.id=1;`)
       .then(data => {
+        console.log("res rows here", data.rows)
         const users = data.rows;
         res.json({ users });
       })
       .catch(err => {
+        console.log("res rows in catch is here", res.rows)
         res
           .status(500)
           .json({ error: err.message });
@@ -23,3 +26,11 @@ module.exports = (db) => {
   });
   return router;
 };
+
+// router.post("/:id", (req, res) => {
+//   /* post that inserts favourite listings */
+// });
+// router.post("/:id", (req, res) => {
+//   /* post that completes search */
+// });
+// router.get("/:id", (req, res) => {})
