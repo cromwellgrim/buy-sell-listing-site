@@ -61,8 +61,10 @@ app.get("/", (req, res) => {
   // const users = usersRoutes(db);
   // console.log("users var here", users)
   res.render("index");
+});
 
-
+app.get("/listings", (req, res) => {
+  res.render("searchlistings");
 });
 
 app.listen(PORT, () => {
