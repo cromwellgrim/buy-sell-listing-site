@@ -1,28 +1,29 @@
 
 
-const searchListings = function (options, limit = 8) {
+const searchListings = function (db, options, limit = 8) {
   const queryParams = [];
   let queryString = `
   SELECT listings.*
   FROM listings
+  WHERE 1 = 1
   `;
-  if(options.price) {
-    queryParams.push(`%${options.price}%`);
-    queryString += `WHERE price >= $${queryParams.length}`;
+  if(options.min_price) {
+    queryParams.push(`${options.min_price}`);
+    queryString += `AND price >= $${queryParams.length}`;
   }
 
-  if(options.price) {
-    queryParams.push(`${options.price}`);
+  if(options.max_price) {
+    queryParams.push(`${options.max_price}`);
     queryString += `AND price <= $${queryParams.length}`;
   }
 
   if(options.make) {
-    queryParams.push(`${options.make}`);
+    queryParams.push(`%${options.make}%`);
     queryString += `AND make ILIKE $${queryParams.length}`;
   }
 
   if(options.model) {
-    queryParams.push(`${options.model}`);
+    queryParams.push(`%${options.model}%`);
     queryString += `AND model ILIKE $${queryParams.length}`;
   }
 

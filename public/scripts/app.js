@@ -1,13 +1,3 @@
-// $(() => {
-//   $.ajax({
-//     method: "GET",
-//     url: "/api/users"
-//   }).done((users) => {
-//     for(user of users) {
-//       $("<div>").text(user.name).appendTo($("#listings"));
-//     }
-//   });;
-// });
 
 $(() => {
   $.ajax({
@@ -28,16 +18,6 @@ $(() => {
       container.appendTo($("#listings"))
     }
 
-    // let listArr = [];
-    // console.log("object.entries", Object.entries(listings));
-    // for (let listing of listings) {
-    //   listArr.push(listing);
-    // }
-    // for (let i = 0; i < listArr.length; i++) {
-    //   console.log("listArr", listArr[i])
-    // $("<tr>").text(listArr[i]).appendTo($("tbody"));
-    // }
-
   });;
 })
 
@@ -52,3 +32,80 @@ $(document).ready(function() {
     }
   });
 });
+
+$(document).ready(function () {
+	$("#search").on("submit", function (event) {
+    event.preventDefault();
+$.ajax({
+  url: "/api/listings",
+  method: "POST",
+  data: $(this).serialize(),
+}).then((listings) => {
+console.log("listings in ajax", listings)
+$("#search").val("")
+getListings();
+})
+  })
+
+  const createListingElement = function (listing) {
+    const $listing = $(`
+    <article class="listing-article">
+    <header class="listing-container-header">
+    <p>${listing.title}</p>
+    <p>${listing.price}>
+    <div class="listing-pic-name">
+    <img class="listing-pic" src="${listing.thumbnail_photo}" />
+    <p>${listing.make}</p>
+    <p>${listing.model}</p>
+    <p>${listing.year}</p>
+    </div>
+    <p class="seller_id">${user.name}</p>
+    </header>
+    <p>${listing.description}</p>
+
+    <hr>
+    <footer class="listing-container-footer">
+    <form class="comment-box">
+    <textarea></textarea>
+    </form>
+    </footer>
+    </article>
+    `);
+
+    return $listing;
+  };
+
+  const renderListings = function (listings) {
+    for (let listing of Object.values(listings)) {
+      $("#list").prepend(createListingElement(listing));
+    }
+  };
+
+  const getListings = function () {
+    $.ajax({
+      url: "/api/listings",
+      method: "GET",
+      dataType: "JSON",
+      success: (listing) => {
+        renderListings(listing);
+      },
+    });
+  };
+});
+
+  // const timeSinceTweet = function (now, before) {
+// 	const timePassed = now - before;
+// 	const minute = 60 * 1000;
+// 	const hour = minute * 60;
+// 	const day = hour * 60;
+
+// 	if (timePassed < minute) {
+// 		return Math.round(timePassed / 1000) + " seconds ago";
+// 	} else if (timePassed < hour) {
+// 		return Math.round(timePassed / minute) + " minutes ago";
+// 	} else if (timePassed < day) {
+// 		return Math.round(timePassed / hour) + " hours ago";
+// 	} else if (timePassed > day) {
+// 		return "This tweet happened a long time ago";
+// 	}
+// };

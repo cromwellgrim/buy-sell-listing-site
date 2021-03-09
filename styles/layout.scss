@@ -1,43 +1,43 @@
 // See: https://sass-lang.com/
 
-html {
-  background: url("https://atmosphere.copernicus.eu/sites/default/files/styles/hero_image_extra_large_2x/public/2020-06/iStock-484828810.jpg") no-repeat center center fixed;
-  background-size: cover;
-  height: 100%;
-  overflow: hidden;
-}
-
-// .image {
-//   background-color: #490D40;
-//   background: url("https://atmosphere.copernicus.eu/sites/default/files/styles/hero_image_extra_large_2x/public/2020-06/iStock-484828810.jpg") no-repeat center center;
+// html {
+//   background: url("https://atmosphere.copernicus.eu/sites/default/files/styles/hero_image_extra_large_2x/public/2020-06/iStock-484828810.jpg") no-repeat center center fixed;
 //   background-size: cover;
-//   height: 570px;
-//   margin-top: -20px;
-
-//   .heading {
-//      color: white;
-//      text-align: center;
-//      padding-top: 200px;
-//   }
-
-//   p {
-//      text-align: center;
-//      padding: 20px 60px;
-
-//       .btn {
-//         background-color: transparent;
-//         color: white;
-//         border: 1px solid white;
-//         padding: 10px;
-//         font-size: 1.2em;
-
-//          &:hover {
-//             color: #C57ED3;
-//             border-color: #C57ED3;
-//          }
-//      }
-//   }
+//   height: 100%;
+//   overflow: hidden;
 // }
+
+.image {
+  background-color: #490D40;
+  background: url("https://atmosphere.copernicus.eu/sites/default/files/styles/hero_image_extra_large_2x/public/2020-06/iStock-484828810.jpg") no-repeat center center;
+  background-size: cover;
+  height: 570px;
+  margin-top: -20px;
+
+  .heading {
+     color: white;
+     text-align: center;
+     padding-top: 200px;
+  }
+
+  p {
+     text-align: center;
+     padding: 20px 60px;
+
+      .btn {
+        background-color: transparent;
+        color: white;
+        border: 1px solid white;
+        padding: 10px;
+        font-size: 1.2em;
+
+         &:hover {
+            color: #C57ED3;
+            border-color: #C57ED3;
+         }
+     }
+  }
+}
 
 .navbar {
  display: flex;

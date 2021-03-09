@@ -38,13 +38,14 @@
     </nav>
   </div>
   <div class="container">
-    <form>
+    <form action="/api/listings"  method="POST" id="search">
       <div class="wrapper">
         <p>Buy Some Airplanes and Spaceships!</p>
         <div class="search-container">
-          <input type="text" class="search-price" placeholder="Price">
-          <input type="text" class="seach-make" placeholder="Make">
-          <input type="text" class="search-model" placeholder="Model">
+          <input name="min_price" type="text" class="search-price" placeholder="Minimum Price">
+          <input name="max_price" type="text" class="search-price" placeholder="Maximum Price">
+          <input name="make" type="text" class="seach-make" placeholder="Make">
+          <input name="model"type="text" class="search-model" placeholder="Model">
           <button type="submit" class="button">Search</button>
         </div>
       </div>

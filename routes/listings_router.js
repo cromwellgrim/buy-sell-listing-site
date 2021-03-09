@@ -18,10 +18,14 @@ router.get("/", (req, res) => {
       res.send(listingID);
     });
 });
-router.get("/listings", (req, res) => {
-  searchListings(db, req.params.id)
+
+router.post("/", (req, res) => {
+  console.log("req.body is here", req.body)
+let options = req.body
+  searchListings(db, options)
   .then(listings => {
-    res.render("searchlistings");
+    console.log("lisitngs is here", listings)
+    res.send({listings});
   });
 });
 return router
