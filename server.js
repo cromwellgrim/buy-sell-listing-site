@@ -38,15 +38,17 @@ app.use(express.static("public"));
 const usersRoutes = require("./routes/users_router.js");
 const listingsRoutes = require("./routes/listings_router.js");
 
+
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
- app.use("/api/users", usersRoutes(db));
+app.use("/api/users", usersRoutes(db));
 
-app.use("/users/:id", usersRoutes(db));
+// app.use("/users/:id", usersRoutes(db));
 
 app.use("/api/listings", listingsRoutes(db));
 
-app.use("/listings/:id", listingsRoutes(db));
+// app.use("/listings/:id", listingsRoutes(db));
+
 
 // app.get('/:id', (req, res) => {
 //   req.session.user_id = req.params.id;
@@ -63,6 +65,11 @@ app.get("/", (req, res) => {
   res.render("index");
 });
 
+<<<<<<< HEAD
+=======
+});
+
+>>>>>>> c93410d47525d2052f49114825cd8dfed53e3d6d
 app.get("/listings", (req, res) => {
   res.render("searchlistings");
 });
