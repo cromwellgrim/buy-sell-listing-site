@@ -8,13 +8,13 @@ const router = express.Router();
 router.get("/", (req, res) => {
   getUsers(db)
     .then(users => {
-      res.send({users});
+      res.send(users);
     });
 });
 router.get("/:id", (req, res) => {
   getUsersByID(db, req.params.id)
     .then((usersID) => {
-      res.send({usersID});
+      res.send(usersID);
     });
 });
 return router

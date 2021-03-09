@@ -22,7 +22,7 @@
 
    return db.query(queryString, queryParams)
       .then(res => {
-      console.log("users res rows here", res.rows)
+      // console.log("users res rows here", res.rows)
         return res.rows;
       })
       .catch(err => {

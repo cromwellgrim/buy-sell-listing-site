@@ -40,11 +40,11 @@ const listingsRoutes = require("./routes/listings_router.js");
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
-app.use("/", usersRoutes(db));
+ app.use("/api/users", usersRoutes(db));
 
 app.use("/users/:id", usersRoutes(db));
 
-app.use("/", listingsRoutes(db));
+app.use("/api/listings", listingsRoutes(db));
 
 app.use("/listings/:id", listingsRoutes(db));
 
@@ -58,7 +58,11 @@ app.use("/listings/:id", listingsRoutes(db));
 // Warning: avoid creating more routes in this file!
 // Separate them into separate routes files (see above).
 app.get("/", (req, res) => {
+  // const users = usersRoutes(db);
+  // console.log("users var here", users)
   res.render("index");
+
+
 });
 
 app.listen(PORT, () => {

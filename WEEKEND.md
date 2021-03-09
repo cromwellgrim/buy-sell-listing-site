@@ -3,7 +3,7 @@
 ## ROUTING
 ### BROWSE - GET users can browse through the site
 - [ ] search through listings
-- [ ] featured listings on the home page)
+- [ ] featured listings on the home page
 ### READ - GET users pull up their personal things
 - [ ] users have access to a comment field under a listing
 - [ ] user can see their favourited listings
@@ -27,11 +27,11 @@
 - [ ] prebuilt favourites attached to existing listings/users
 
 ### MVP
-- [ ] users can view listings
-- [ ] users can search through listings
-- [ ] users can comment on listings
-- [ ] users can favourite listings
-- [ ] sellers can respond in comments
-- [ ] sellers access listings and post approved listings and mark sold
-- [ ] sellers delete listings after a certain time (or this could be
+- [X] users can view listings
+- [X] users can search through listings
+- [X] users can comment on listings
+- [X] users can favourite listings
+- [X] sellers can respond in comments
+- [X] sellers access listings and post approved listings and mark sold
+- [X] sellers delete listings after a certain time (or this could be
       automated)

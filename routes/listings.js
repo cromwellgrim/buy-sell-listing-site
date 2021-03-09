@@ -13,14 +13,15 @@
 
   const getListings = (db, listings) => {
     const queryString = `
-    SELECT *
+    SELECT *, users.name
     FROM listings
+    JOIN users ON users.id = listings.seller_id
     `;
     const queryParams = listings;
 
    return db.query(queryString, queryParams)
       .then(res => {
-        console.log("getListings res rows here", res.rows)
+        // console.log("getListings res rows here", res.rows)
         return res.rows;
       })
       .catch(err => {

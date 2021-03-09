@@ -68,9 +68,9 @@ RESTful
 
 Browse  GET  /
 Read    GET  /:id
-Edit    POST /:id
+Edit    POST /mylistings/:id
 Add     POST /:id 
-Delete  POST /:id
+Delete  POST /mylistings/:id
 <!-- GET/POST reference ejs files in server file. what ejs files will we have? -->
 ### MVP
 * Minimal Viable Product
