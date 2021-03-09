@@ -2,7 +2,7 @@
 
 .image {
   background-color: #490D40;
-  background: url("https://lumiere-a.akamaihd.net/v1/images/millennium-falcon-main-tlj-a_7cf89d3a.jpeg?region=0%2C0%2C1280%2C720") no-repeat center center;
+  background: url("https://atmosphere.copernicus.eu/sites/default/files/styles/hero_image_extra_large_2x/public/2020-06/iStock-484828810.jpg") no-repeat center center;
   background-size: cover;
   height: 570px;
   margin-top: -20px;
@@ -33,6 +33,9 @@
 }
 
 .navbar {
+ display: flex;
+ flex-direction: row;
+ justify-content: flex-start;
  height: 80px;
  background-color: transparent;
  border: none;
@@ -203,5 +206,68 @@ body {
 }
 
 
+.container {
+  width: 852px;
+  background: transparent;
+  margin: 0 auto;
+  padding: 16px;
+}
 
+.wrapper {
+  color: black;
+  margin: 8px 0;
+
+}
+
+.search-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-content: stretch;
+  align-items: flex-start;
+}
+
+input {
+  min-width: 20px;
+  padding: 8px;
+  margin: 0 4px 0 0;
+  border: 1px solid rgb(0, 0, 0);
+  border-radius: 5px;
+  height: 30px;
+}
+
+.button {
+  padding: 8px 16px;
+  min-height: 48px;
+  min-width: 10px;
+  word-wrap: nowrap;
+  background: #000;
+  color: #fff;
+  border: 1px solid #fff;
+  border-radius:25% 15%;
+}
+
+input {
+    order: 0;
+    align-self: auto;
+}
+
+.search-price {
+  flex: 2 1 auto;
+}
+
+.search-make {
+  flex: 1 1 auto;
+}
+
+.search-model {
+  flex: 1 1 auto;
+}
+
+.button {
+    order: 4;
+    flex: 0 1 auto;
+    align-self: auto;
+}
 
