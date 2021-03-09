@@ -32,16 +32,25 @@ app.use("/styles", sass({
 }));
 app.use(express.static("public"));
 
+
 // Separated Routes for each Resource
 // Note: Feel free to replace the example routes below with your own
-const usersRoutes = require("./routes/users");
-/* const widgetsRoutes = require("./routes/widgets"); */
+const usersRoutes = require("./routes/users_router.js");
+const listingsRoutes = require("./routes/listings_router.js");
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
-app.use("/api/users", usersRoutes(db));
+app.use("/", usersRoutes(db));
 
-/* app.use("/api/widgets", widgetsRoutes(db)); */
+app.use("/users/:id", usersRoutes(db));
+
+app.use("/", listingsRoutes(db));
+
+app.use("/listings/:id", listingsRoutes(db));
+
+// app.get('/:id', (req, res) => {
+//   req.session.user_id = req.params.id;
+// });
 // Note: mount other resources here, using the same pattern above
 
 
