@@ -185,5 +185,23 @@ body {
 }
 
 
+#listings {
+  height: fit-content;
+  width: fit-content;
+
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  border: solid 1px #244751;
+  margin: 2px;
+  padding: 2px;
+}
+
+.thumbnail {
+  height: 300px;
+  width: auto;
+}
+
+
 
 
