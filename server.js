@@ -65,11 +65,7 @@ app.get("/", (req, res) => {
   res.render("index");
 });
 
-<<<<<<< HEAD
-=======
-});
 
->>>>>>> c93410d47525d2052f49114825cd8dfed53e3d6d
 app.get("/listings", (req, res) => {
   res.render("searchlistings");
 });
