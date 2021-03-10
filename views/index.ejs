@@ -17,44 +17,46 @@
     <div class="image">
     <nav class="navbar navbar-default navbar-fixed-top">
             <div class="container">
-              <div class="navbar-header">
-                  <span class="icon-bar"></span>
-                  <span class="icon-bar"></span>
-                  <span class="icon-bar"></span>
-                <a class="navbar-brand" href="#">Airplanes</a>
-              </div>
               <div id="navbar" class="collapse navbar-collapse">
-                <ul class="nav navbar-nav navbar-right">
-                  <li><a href="#">My Listings</a></li>
-                  <li><a href="#">Link</a></li>
-                  <li><a href="#">Another Link</a></li>
-                  <li>
+                <div class="nav navbar-nav navbar-right">
+                  <form action="/api/users" method="GET" id="homelink">
+                    <button type="submit" class="button">Home</button>
+                  </form>
+                  <form action="/api/users" method="GET" id="mylistingslink">
+                    <button type="submit" class="button">My Listings</button>
+                  </form>
+                  <form action="/api/create" method="GET" id="createlistingslink">
+                    <button type="submit" class="button">Create Listing</button>
+                  </form>
+                  <form action="/api/users" method="GET" id="favouritelistingslink">
+                    <button type="submit" class="button">Favourite Listings</button>
+                  </form>
                     <form action="/api/users" method="GET" id="login">
                       <textarea id="login-text" placeholder="username here please"></textarea>
                       <button type="submit" class="button">Login</button>
                     </form>
-                  </li>
-                  <li id="currentUser"></li>
-                </ul>
+                  <div id="currentUser"></div>
+                  </div>
               </div><!--/.nav-collapse -->
             </div>
+
     </nav>
-  </div>
-  <div class="container">
-    <form action="/api/listings"  method="POST" id="search">
-      <div class="wrapper">
-        <p>Buy Some Airplanes and Spaceships!</p>
-        <div class="search-container">
-          <input name="min_price" type="text" class="search-price" placeholder="Minimum Price">
-          <input name="max_price" type="text" class="search-price" placeholder="Maximum Price">
-          <input name="make" type="text" class="seach-make" placeholder="Make">
-          <input name="model"type="text" class="search-model" placeholder="Model">
-          <button type="submit" class="button">Search</button>
+    <div class="search-bar">
+      <form action="/api/listings"  method="POST" id="search">
+        <div class="wrapper">
+          <p class="airplane-nav">Buy Some Airplanes and Spaceships!</p>
+          <div class="search-container">
+            <input name="min_price" type="text" class="search-price" placeholder="Minimum Price">
+            <input name="max_price" type="text" class="search-price" placeholder="Maximum Price">
+            <input name="make" type="text" class="seach-make" placeholder="Make">
+            <input name="model"type="text" class="search-model" placeholder="Model">
+            <button type="submit" class="button">Search</button>
+          </div>
         </div>
-      </div>
-    </form>
+      </form>
+    </div>
   </div>
-  <h1>Featured Listings!</h1>
+  <p id="page-title">Featured Listings!</p>
   <main id="list">
     <div id="listings"></div>
   </main>
