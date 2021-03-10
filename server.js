@@ -10,6 +10,7 @@ const sass       = require("node-sass-middleware");
 const app        = express();
 const morgan     = require('morgan');
 
+
 // PG database client/connection setup
 const { Pool } = require('pg');
 const dbParams = require('./lib/db.js');
@@ -50,9 +51,10 @@ app.use("/api/listings", listingsRoutes(db));
 // app.use("/listings/:id", listingsRoutes(db));
 
 
-// app.get('/:id', (req, res) => {
-//   req.session.user_id = req.params.id;
-// });
+app.get('/login/:id', (req, res) => {
+  req.session.user_id = req.params.id;
+  res.redirect('/');
+});
 // Note: mount other resources here, using the same pattern above
 
 

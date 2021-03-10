@@ -13,7 +13,7 @@
 
   const getListings = (db, listings) => {
     const queryString = `
-    SELECT *, users.name
+    SELECT *
     FROM listings
     JOIN users ON users.id = listings.seller_id
     `;

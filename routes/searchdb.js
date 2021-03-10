@@ -3,8 +3,9 @@
 const searchListings = function (db, options, limit = 8) {
   const queryParams = [];
   let queryString = `
-  SELECT listings.*
+  SELECT *
   FROM listings
+  JOIN users ON users.id = listings.seller_id
   WHERE 1 = 1
   `;
   if(options.min_price) {
@@ -29,7 +30,7 @@ const searchListings = function (db, options, limit = 8) {
 
   queryParams.push(limit);
   queryString += `
-  GROUP BY listings.id
+  GROUP BY listings.id, users.id
   ORDER BY price
   LIMIT $${queryParams.length};
   `;

@@ -18,7 +18,7 @@ $(() => {
       container.appendTo($("#listings"))
     }
 
-  });;
+  })
 })
 
 $(document).ready(function() {
@@ -26,74 +26,81 @@ $(document).ready(function() {
   $(window).scroll(function() {
     // checks if window is scrolled more than 500px, adds/removes solid class
     if($(this).scrollTop() > 500) {
-        $('.navbar').addClass('solid');
+      $('.navbar').addClass('solid');
     } else {
-        $('.navbar').removeClass('solid');
+      $('.navbar').removeClass('solid');
     }
   });
 });
 
-$(document).ready(function () {
-	$("#search").on("submit", function (event) {
-    event.preventDefault();
-$.ajax({
-  url: "/api/listings",
-  method: "POST",
-  data: $(this).serialize(),
-}).then((listings) => {
-console.log("listings in ajax", listings)
-$("#search").val("")
-getListings();
-})
-  })
+
 
   const createListingElement = function (listing) {
+    console.log("at start of func", listing)
     const $listing = $(`
     <article class="listing-article">
     <header class="listing-container-header">
-    <p>${listing.title}</p>
-    <p>${listing.price}>
+    <p>${listing.title}</p
+    <p>${listing.price}</p>
+    <p>${listing.name}</p>
+    <form action="/listings/:id" method="GET" class="singleListing">
+    <button type="submit" class="button">Contact Seller</button>
+    </form>
     <div class="listing-pic-name">
-    <img class="listing-pic" src="${listing.thumbnail_photo}" />
+    <img class="listing-pic" src="${listing.thumbnail_photo}"/>
     <p>${listing.make}</p>
     <p>${listing.model}</p>
     <p>${listing.year}</p>
     </div>
-    <p class="seller_id">${user.name}</p>
     </header>
     <p>${listing.description}</p>
-
     <hr>
     <footer class="listing-container-footer">
-    <form class="comment-box">
-    <textarea></textarea>
-    </form>
     </footer>
     </article>
     `);
-
+    console.log("create listing function here", listing)
     return $listing;
   };
 
   const renderListings = function (listings) {
-    for (let listing of Object.values(listings)) {
+    $("#list").empty();
+    console.log("after empty", listings)
+    for (let listing of listings) {
+      console.log("create listing here", listing)
       $("#list").prepend(createListingElement(listing));
     }
   };
 
   const getListings = function () {
     $.ajax({
-      url: "/api/listings",
+      url: "/",
       method: "GET",
       dataType: "JSON",
       success: (listing) => {
-        renderListings(listing);
+        renderListings(Object.values(listing));
       },
     });
   };
-});
 
-  // const timeSinceTweet = function (now, before) {
+  $(document).ready(function () {
+    getListings();
+    $("#search").on("submit", function (event) {
+      event.preventDefault();
+      console.log("this is working")
+      $.ajax({
+        url: "/api/listings",
+        method: "POST",
+        data: $(this).serialize(),
+      }).then((listings) => {
+        console.log("listings in ajax", listings)
+        $("#search").val("")
+        console.log(listings.listings)
+        renderListings(Object.values(listings.listings));
+      })
+    })
+  });
+// const timeSinceTweet = function (now, before) {
 // 	const timePassed = now - before;
 // 	const minute = 60 * 1000;
 // 	const hour = minute * 60;
