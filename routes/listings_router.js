@@ -1,6 +1,7 @@
 const express = require('express');
 const { getListings, getListingsByID } = require('./listings')
 const { searchListings } = require('./searchdb')
+const { addListings } = require('./addListing')
 
 
 module.exports = function(db) {
@@ -12,6 +13,7 @@ router.get("/", (req, res) => {
       res.send(listings);
     });
 });
+
 router.get("/", (req, res) => {
   getListingsByID(db, req.params.id)
     .then(listingID => {
@@ -20,11 +22,17 @@ router.get("/", (req, res) => {
 });
 
 router.post("/", (req, res) => {
-  console.log("req.body is here", req.body)
 let options = req.body
   searchListings(db, options)
   .then(listings => {
-    console.log("lisitngs is here", listings)
+    res.send({listings});
+  });
+});
+
+router.post("/", (req, res) => {
+let options = req.body
+  addListings(db, options)
+  .then(listings => {
     res.send({listings});
   });
 });
