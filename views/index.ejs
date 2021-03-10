@@ -21,18 +21,20 @@
                   <span class="icon-bar"></span>
                   <span class="icon-bar"></span>
                   <span class="icon-bar"></span>
-                <a class="navbar-brand" href="#">Transparent to Solid Nav</a>
+                <a class="navbar-brand" href="#">Airplanes</a>
               </div>
               <div id="navbar" class="collapse navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
-                  <li><a href="#">About</a></li>
+                  <li><a href="#">My Listings</a></li>
                   <li><a href="#">Link</a></li>
                   <li><a href="#">Another Link</a></li>
                   <li>
                     <form action="/api/users" method="GET" id="login">
+                      <textarea id="login-text" placeholder="username here please"></textarea>
                       <button type="submit" class="button">Login</button>
                     </form>
                   </li>
+                  <li id="currentUser"></li>
                 </ul>
               </div><!--/.nav-collapse -->
             </div>
