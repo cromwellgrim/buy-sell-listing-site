@@ -92,6 +92,7 @@ $(document).ready(function() {
       }).then((listings) => {
         console.log("listings in ajax", listings)
         $("#search").val("")
+        $("#page-title").replaceWith("<p>Searched Listings</p>")
         renderListings(Object.values(listings.listings));
       })
     })
@@ -120,37 +121,15 @@ $(document).ready(function() {
   })
   })
 
-//   const getUsers = function () {
-//     $.ajax({
-//       url: "/",
-//       method: "GET",
-//       dataType: "JSON",
-//       success: (users) => {
-//         renderUsers(Object.values(users));
-//       },
-//     });
-//   };
+  exports.createListingElement = createListingElement
 
 
 
-// $(document).ready(function () {
-//   getUsers()
-//   $("#login").on("submit"), function (event) {
-//     event.preventDefault();
-//     console.log("does the login work?")
-//     $.ajax({
-//       url: "/api/users",
-//       method: "POST",
-//       data: $(this).serialize(),
-//     }).then((users) => {
-//       console.log("users in ajax", users)
-//       getUsersByID(users, )
-//       $("#login").val("")
-//       placeUser();
-//     })
 
-//   }
-// }
+
+
+
+
 // const timeSinceTweet = function (now, before) {
 // 	const timePassed = now - before;
 // 	const minute = 60 * 1000;
