@@ -48,6 +48,7 @@ app.use("/api/users", usersRoutes(db));
 
 app.use("/api/listings", listingsRoutes(db));
 
+
 // app.use("/listings/:id", listingsRoutes(db));
 
 
