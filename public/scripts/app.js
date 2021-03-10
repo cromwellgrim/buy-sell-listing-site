@@ -1,4 +1,5 @@
 
+
 $(() => {
   $.ajax({
     method: "GET",
@@ -59,15 +60,12 @@ $(document).ready(function() {
     </footer>
     </article>
     `);
-    console.log("create listing function here", listing)
     return $listing;
   };
 
   const renderListings = function (listings) {
     $("#list").empty();
-    console.log("after empty", listings)
     for (let listing of listings) {
-      console.log("create listing here", listing)
       $("#list").prepend(createListingElement(listing));
     }
   };
@@ -87,7 +85,6 @@ $(document).ready(function() {
     getListings();
     $("#search").on("submit", function (event) {
       event.preventDefault();
-      console.log("this is working")
       $.ajax({
         url: "/api/listings",
         method: "POST",
@@ -95,11 +92,65 @@ $(document).ready(function() {
       }).then((listings) => {
         console.log("listings in ajax", listings)
         $("#search").val("")
-        console.log(listings.listings)
         renderListings(Object.values(listings.listings));
       })
     })
-  });
+  })
+
+  $(document).ready(function () {
+    $("#login").on("submit", function (event) {
+      event.preventDefault();
+      let currentUser = $("#login-text").val();
+    $.ajax({
+      method: "GET",
+      url: "/api/users",
+      data: $(this).serialize(),
+    }).then((users) => {
+      for (let user of users) {
+        console.log("user.name in-for loop", user.name)
+        console.log("currentUser in loop here", currentUser)
+        if (currentUser === user.name) {
+          return $("<div>").text(user.name).appendTo("#currentUser")
+          // $('li#currentUser').append('<div>${user.name}</div>');
+
+        }
+      }
+
+    })
+  })
+  })
+
+//   const getUsers = function () {
+//     $.ajax({
+//       url: "/",
+//       method: "GET",
+//       dataType: "JSON",
+//       success: (users) => {
+//         renderUsers(Object.values(users));
+//       },
+//     });
+//   };
+
+
+
+// $(document).ready(function () {
+//   getUsers()
+//   $("#login").on("submit"), function (event) {
+//     event.preventDefault();
+//     console.log("does the login work?")
+//     $.ajax({
+//       url: "/api/users",
+//       method: "POST",
+//       data: $(this).serialize(),
+//     }).then((users) => {
+//       console.log("users in ajax", users)
+//       getUsersByID(users, )
+//       $("#login").val("")
+//       placeUser();
+//     })
+
+//   }
+// }
 // const timeSinceTweet = function (now, before) {
 // 	const timePassed = now - before;
 // 	const minute = 60 * 1000;
@@ -115,4 +166,4 @@ $(document).ready(function() {
 // 	} else if (timePassed > day) {
 // 		return "This tweet happened a long time ago";
 // 	}
-// };
+// }
