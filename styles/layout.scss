@@ -6,9 +6,10 @@
 //   height: 100%;
 //   overflow: hidden;
 // }
+@import url('https://fonts.googleapis.com/css2?family=Damion&display=swap');
 
 .image {
-  background-color: #490D40;
+  background-color: rgb(76, 103, 112);
   background: url("https://atmosphere.copernicus.eu/sites/default/files/styles/hero_image_extra_large_2x/public/2020-06/iStock-484828810.jpg") no-repeat center center;
   background-size: cover;
   height: 570px;
@@ -32,7 +33,7 @@
         font-size: 1.2em;
 
          &:hover {
-            color: #C57ED3;
+            color:  rgb(76, 103, 112);
             border-color: #C57ED3;
          }
      }
@@ -41,11 +42,13 @@
 
 .navbar {
  display: flex;
- flex-direction: row;
- justify-content: flex-start;
+ flex-direction: column;
+ justify-content:space-around;
+ position: fixed;
  height: 80px;
  background-color: transparent;
  border: none;
+ font-family: 'Damion', cursive;
  color: white;
  z-index: 100;
  transition: background-color 1s ease 0s;
@@ -59,12 +62,14 @@
     color: white;
 
      &:hover {
-        color: #C57ED3;
-        border: 1px solid #C57ED3;
+        color: #eeeeee;
+        border: 1px solid #ffffff;
      }
   }
 
  .navbar-nav {
+   display: flex;
+   flex-direction: row;
 
    > li {
 
@@ -74,11 +79,11 @@
 
      }
      > a:hover, > a:active, > a:focus {
-       color: #C57ED3;
-       border: 1px solid #C57ED3;
+       color: #ffffff;
+       border: 1px solid #ffffff;
      }
      > a:visited {
-       color: #C57ED3;
+       color: #ffffff;
        text-decoration: none;
      }
 
@@ -95,27 +100,6 @@
 
  } //end .navbar-nav
 
- //Collapsed styles
- .navbar-toggle {
-   border-color: #C57ED3;
-
-     &:hover, &:focus {
-       background-color: #490D40;
-     }
-
-
-
-     .icon-bar {
-       color: #C57ED3;
-       background-color: #C57ED3;
-
-     }
- }
-
- .navbar-collapse.collapse.in ul {
-   background-color: #490D40;
- }
-
 } //end .navbar-default
 
 
@@ -123,7 +107,7 @@
 /* Solid class attached on scroll past first section */
 
 .navbar.solid {
- background-color: #490D40;
+ background-color: rgb(76, 103, 112);
  transition: background-color 1s ease 0s;
  box-shadow: 0 0 4px grey;
 
@@ -188,10 +172,10 @@
 
 body {
 
-
   h1 {
     color: #244751;
   }
+
 }
 
 //Beginning of changes made to layout by Gavin
@@ -240,6 +224,8 @@ body {
 //End of changes made to layout by Gavin
 
 .container {
+  display: flex;
+  flex-direction: row;
   width: 852px;
   background: transparent;
   margin: 0 auto;
@@ -254,6 +240,7 @@ body {
 }
 
 .search-container {
+  font-family: 'Courier New', Courier, monospace;
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
