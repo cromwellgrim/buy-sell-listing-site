@@ -51,10 +51,10 @@ app.use("/api/listings", listingsRoutes(db));
 // app.use("/listings/:id", listingsRoutes(db));
 
 
-app.get('/login/:id', (req, res) => {
-  req.session.user_id = req.params.id;
-  res.redirect('/');
-});
+// app.get('/login/:id', (req, res) => {
+//   req.session.user_id = req.params.id;
+//   res.redirect('/');
+// });
 // Note: mount other resources here, using the same pattern above
 
 
