@@ -194,24 +194,50 @@ body {
   }
 }
 
-
+//Beginning of changes made to layout by Gavin
 #listings {
   height: fit-content;
   width: fit-content;
-
   display: flex;
   flex-direction: column;
-  align-content: center;
-  border: solid 1px #244751;
+  align-items: center;
   margin: 2px;
   padding: 2px;
 }
 
 .thumbnail {
+  display: flex;
   height: 300px;
   width: auto;
+  padding: 1em;
 }
 
+#adbox {
+  border: black solid 2px;
+  background-color: bisque;
+  margin: 80px;
+  padding: 1em;
+  display: flex;
+  align-content: center;
+  width: 60%;
+}
+
+#list {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+}
+
+#body {
+  background-color: rgb(194, 218, 226);
+
+}
+
+#adtitle {
+  font-size: 20px;
+  font-weight: 600;
+}
+//End of changes made to layout by Gavin
 
 .container {
   width: 852px;
@@ -219,6 +245,7 @@ body {
   margin: 0 auto;
   padding: 16px;
 }
+
 
 .wrapper {
   color: black;

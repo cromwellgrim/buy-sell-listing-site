@@ -7,15 +7,15 @@ $(() => {
   }).done((listings) => {
 
     for (let listing of listings) {
-      const container = $("<div class='listing'>")
-      $("<div>").text(listing.title).appendTo(container)
-      $("<div>").text(listing.name).appendTo(container)
+      const container = $("<div id='adbox'>")
+      $("<div id='adtitle'>").text(listing.title).appendTo(container)
+      $("<div>").text("Seller: " + listing.name).appendTo(container)
       $("<div>").text(listing.description).appendTo(container)
-      $("<div>").text(listing.price).appendTo(container)
+      $("<div>").text("$" + listing.price).appendTo(container)
       $("<img class='thumbnail'>").attr("src", listing.thumbnail_photo).appendTo(container)
-      $("<div>").text(listing.year).appendTo(container)
-      $("<div>").text(listing.make).appendTo(container)
-      $("<div>").text(listing.model).appendTo(container)
+      $("<div>").text("Year: " + listing.year).appendTo(container)
+      $("<div>").text("Make: " + listing.make).appendTo(container)
+      $("<div>").text("Model: " + listing.model).appendTo(container)
       container.appendTo($("#listings"))
     }
 
