@@ -1,3 +1,4 @@
+/* Searches through listings according to given parameters */
 const searchListings = function (db, options, limit = 8) {
   const queryParams = [];
   let queryString = `
