@@ -9,16 +9,24 @@ module.exports = function(db) {
 const router = express.Router();
 
 router.get("/", (req, res) => {
-  console.log("queryParams", req.query)
   getListings(db)
     .then(listings => {
       res.send(listings);
     });
 });
 
+router.post("/listings", (req, res) => {
+  console.log("post listings is here")
+  // getListingsByID(db, req.params.id)
+  getListings(db)
+    .then(listingID => {
+      res.send(listingID);
+    });
+});
+
 router.post("/search", (req, res) => {
   console.log("I got here!")
-let options = req.body
+  let options = req.body
   searchListings(db, options)
   .then(listings => {
     res.send({listings});
@@ -26,37 +34,11 @@ let options = req.body
 });
 
 router.post("/", (req, res) => {
-
   let options = req.body
-
-
     addListings(db, options)
     .then(listings => {
-
       res.send({listings});
     });
-});
-
-router.get("/users/:id/listings", (req, res) => {
-  console.log("get is here")
-  getListingsByID(db, req.params.id)
-    .then(listingID => {
-      res.send(listingID);
-    });
-});
-
-
-
-router.post("/", (req, res) => {
-
-let options = req.body
-
-
-  addListings(db, options)
-  .then(listings => {
-
-    res.send({listings});
-  });
 });
 
 return router
