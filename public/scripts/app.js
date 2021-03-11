@@ -1,6 +1,5 @@
 
-
-$(() => {
+$(document).ready(function () {
   $.ajax({
     method: "GET",
     url: "/api/listings"
@@ -34,9 +33,15 @@ $(document).ready(function() {
   });
 });
 
+/* this reveals seller links and hides the login button */
+$(document).ready(function () {
+	$(".login-button").on("click", function (event) {
+    $(".sellerLinks").removeClass("hidden").addClass("visible");
+    $("#login").toggle("show");
+	});
+});
 
-
-  const createListingElement = function (listing) {
+const createListingElement = function (listing) {
     console.log("at start of func", listing)
     const $listing = $(`
     <article class="listing-article">
@@ -64,7 +69,7 @@ $(document).ready(function() {
   };
 
   const renderListings = function (listings) {
-    $("#list").empty();
+    $("#list").empty()
     for (let listing of listings) {
       $("#list").prepend(createListingElement(listing));
     }
@@ -80,13 +85,13 @@ $(document).ready(function() {
       },
     });
   };
-
+/* SEARCH */
   $(document).ready(function () {
     getListings();
     $("#search").on("submit", function (event) {
       event.preventDefault();
       $.ajax({
-        url: "/api/listings",
+        url: "/api/listings/search",
         method: "POST",
         data: $(this).serialize(),
       }).then((listings) => {
@@ -97,7 +102,7 @@ $(document).ready(function() {
       })
     })
   })
-
+/* LOGIN */
   $(document).ready(function () {
     $("#login").on("submit", function (event) {
       event.preventDefault();
@@ -121,7 +126,7 @@ $(document).ready(function() {
   })
   })
 
-  exports.createListingElement = createListingElement
+  // exports.createListingElement = createListingElement
 
 
 
