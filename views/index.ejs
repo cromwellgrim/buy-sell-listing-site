@@ -10,6 +10,7 @@
 
     <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
     <script type="text/javascript" src="/scripts/app.js"></script>
+    <script type="text/javascript" src="/scripts/createListing.js"></script>
 
   </head>
 
@@ -19,37 +20,28 @@
             <div class="container">
               <div id="navbar" class="collapse navbar-collapse">
                 <div class="nav navbar-nav navbar-right">
-                  <form action="/api/users" method="GET" id="homelink">
-                    <button type="submit" class="button">Home</button>
-                  </form>
-                  <form action="/api/users" method="GET" id="mylistingslink">
-                    <button type="submit" class="button">My Listings</button>
-                  </form>
-                  <form action="/api/create" method="GET" id="createlistingslink">
-                    <button type="submit" class="button">Create Listing</button>
-                  </form>
-                  <form action="/api/users" method="GET" id="favouritelistingslink">
-                    <button type="submit" class="button">Favourite Listings</button>
-                  </form>
+                  <a href = "/" id="homelink"> Home</a>
+                  <a href = "/" id="mylistingslink" class="sellerLinks hidden"> My Listings</a>
+                  <a href = "/" id="createlistingslink" class="sellerLinks hidden"> Create Listing</a>
+                  <a href = "/" id="favouritelistingslink" class="sellerLinks hidden"> Favourite Listings</a>
                     <form action="/api/users" method="GET" id="login">
                       <textarea id="login-text" placeholder="username here please"></textarea>
-                      <button type="submit" class="button">Login</button>
+                      <button type="submit" class="login-button">Login</button>
                     </form>
                   <div id="currentUser"></div>
                   </div>
               </div><!--/.nav-collapse -->
             </div>
-
     </nav>
     <div class="search-bar">
-      <form action="/api/listings"  method="POST" id="search">
+      <form action="/api/listings/search"  method="POST" id="search">
         <div class="wrapper">
           <p class="airplane-nav">Buy Some Airplanes and Spaceships!</p>
           <div class="search-container">
             <input name="min_price" type="text" class="search-price" placeholder="Minimum Price">
             <input name="max_price" type="text" class="search-price" placeholder="Maximum Price">
             <input name="make" type="text" class="seach-make" placeholder="Make">
-            <input name="model"type="text" class="search-model" placeholder="Model">
+            <input name="model" type="text" class="search-model" placeholder="Model">
             <button type="submit" class="button">Search</button>
           </div>
         </div>
