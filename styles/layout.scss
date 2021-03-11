@@ -1,11 +1,5 @@
 // See: https://sass-lang.com/
 
-// html {
-//   background: url("https://atmosphere.copernicus.eu/sites/default/files/styles/hero_image_extra_large_2x/public/2020-06/iStock-484828810.jpg") no-repeat center center fixed;
-//   background-size: cover;
-//   height: 100%;
-//   overflow: hidden;
-// }
 @import url('https://fonts.googleapis.com/css2?family=Damion&display=swap');
 
 .image {
@@ -234,7 +228,7 @@ body {
 }
 //End of changes made to layout by Gavin
 
-.container {
+.nav-container {
   display: flex;
   flex-direction: row;
   width: 852px;
