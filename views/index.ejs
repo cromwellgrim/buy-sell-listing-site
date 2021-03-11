@@ -2,6 +2,7 @@
 <html lang="en">
   <head>
     <title>Airplane Site</title>
+    <!-- favicon for the website -->
     <link rel="shortcut icon" type="image/jpg" href="https://freepngimg.com/download/temp/58342-clouds-mosque-airplane-al-bahia-youtube-png-file-hd_32x32.ico"/>
 
     <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
@@ -11,28 +12,32 @@
     <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
     <script type="text/javascript" src="/scripts/app.js"></script>
     <script type="text/javascript" src="/scripts/createListing.js"></script>
+    <script type="text/javascript" src="/scripts/getMyListings.js"></script>
 
   </head>
 
   <body id="body">
+    <!-- creates our  navbar over our bg image-->
     <div class="image">
     <nav class="navbar navbar-default navbar-fixed-top">
-            <div class="container">
-              <div id="navbar" class="collapse navbar-collapse">
+            <div class="nav-container">
+              <!-- navbar with user links that appear after login -->
                 <div class="nav navbar-nav navbar-right">
-                  <a href = "/" id="homelink"> Home</a>
-                  <a href = "/" id="mylistingslink" class="sellerLinks hidden"> My Listings</a>
-                  <a href = "/" id="createlistingslink" class="sellerLinks hidden"> Create Listing</a>
-                  <a href = "/" id="favouritelistingslink" class="sellerLinks hidden"> Favourite Listings</a>
+                  <a href ="/" id="homelink"> Home</a>
+                  <form action="api/listings/listings" method="POST" id="mylistingslink">
+                    <button type="submit" class="sellerLinks hidden">My Listings</button>
+                  </form>
+                  <a href ="/" id="createlistingslink" class="sellerLinks hidden"> Create Listing</a>
+                  <a href ="/" id="favouritelistingslink" class="sellerLinks hidden"> Favourite Listings</a>
                     <form action="/api/users" method="GET" id="login">
                       <textarea id="login-text" placeholder="username here please"></textarea>
                       <button type="submit" class="login-button">Login</button>
                     </form>
                   <div id="currentUser"></div>
                   </div>
-              </div><!--/.nav-collapse -->
             </div>
     </nav>
+    <!-- search bar attached to an SQL query to search listings -->
     <div class="search-bar">
       <form action="/api/listings/search"  method="POST" id="search">
         <div class="wrapper">
@@ -48,6 +53,7 @@
       </form>
     </div>
   </div>
+  <!-- page title is replaced with each type of page loading -->
   <p id="page-title">Featured Listings!</p>
   <main id="list">
     <div id="listings"></div>
