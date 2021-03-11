@@ -71,7 +71,7 @@
    display: flex;
    flex-direction: row;
 
-   > li {
+
 
      > a {
        color: white;
@@ -87,7 +87,7 @@
        text-decoration: none;
      }
 
-   } //end li
+
 
    > .active {
 
@@ -102,8 +102,19 @@
 
 } //end .navbar-default
 
+.hidden {
+  visibility: hidden;
+}
 
+.visible {
+  visibility: visible;
+}
 
+.sellerLinks {
+  font-size: 20px;
+  color: white;
+
+}
 /* Solid class attached on scroll past first section */
 
 .navbar.solid {
@@ -112,7 +123,7 @@
  box-shadow: 0 0 4px grey;
 
    .navbar-brand {
-     color: #C57ED3;
+     color: #ffffff;
      transition: color 1s ease 0s;
    }
 
@@ -121,7 +132,7 @@
       > li {
 
          > a {
-           color: #C57ED3;
+           color: #ffffff;
            transition: color 1s ease 0s;
          }
 
