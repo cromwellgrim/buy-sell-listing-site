@@ -1,5 +1,3 @@
-
-
 const searchListings = function (db, options, limit = 8) {
   const queryParams = [];
   let queryString = `
@@ -31,7 +29,7 @@ const searchListings = function (db, options, limit = 8) {
   queryParams.push(limit);
   queryString += `
   GROUP BY listings.id, users.id
-  ORDER BY price
+  ORDER BY price ASC
   LIMIT $${queryParams.length};
   `;
 
