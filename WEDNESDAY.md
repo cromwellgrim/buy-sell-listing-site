@@ -1,6 +1,6 @@
 ### Favourites
-- [] make get request
-- [] make post request
+- [ ] make get request
+- [ ] make post request
 
 ## Today Goals
 - [ ] access my listings
