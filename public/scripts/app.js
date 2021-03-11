@@ -1,4 +1,4 @@
-
+/* brings all listings to the home page */
 $(document).ready(function () {
   $.ajax({
     method: "GET",
@@ -21,6 +21,7 @@ $(document).ready(function () {
   })
 })
 
+/* controls navbar transparency on scroll */
 $(document).ready(function() {
   // Transition effect for navbar
   $(window).scroll(function() {
@@ -33,7 +34,7 @@ $(document).ready(function() {
   });
 });
 
-/* this reveals seller links and hides the login button */
+/* this reveals user links and hides the login button */
 $(document).ready(function () {
 	$(".login-button").on("click", function (event) {
     $(".sellerLinks").removeClass("hidden").addClass("visible");
@@ -41,6 +42,7 @@ $(document).ready(function () {
 	});
 });
 
+/* html article creater for each listing */
 const createListingElement = function (listing) {
     console.log("at start of func", listing)
     const $listing = $(`
@@ -68,6 +70,7 @@ const createListingElement = function (listing) {
     return $listing;
   };
 
+/* moves through the listings and uses createListingElement function on each listing - part of SEARCH */
   const renderListings = function (listings) {
     $("#list").empty()
     for (let listing of listings) {
@@ -75,7 +78,8 @@ const createListingElement = function (listing) {
     }
   };
 
-  const getListings = function () {
+/* retrieves listings from the database - part of SEARCH */
+  const getListingsForSearch = function () {
     $.ajax({
       url: "/",
       method: "GET",
@@ -85,9 +89,10 @@ const createListingElement = function (listing) {
       },
     });
   };
+
 /* SEARCH */
   $(document).ready(function () {
-    getListings();
+    getListingsForSearch();
     $("#search").on("submit", function (event) {
       event.preventDefault();
       $.ajax({
@@ -97,11 +102,12 @@ const createListingElement = function (listing) {
       }).then((listings) => {
         console.log("listings in ajax", listings)
         $("#search").val("")
-        $("#page-title").replaceWith("<p>Searched Listings</p>")
+        $("#page-title").replaceWith("<p id='page-title'>Searched Listings</p>")
         renderListings(Object.values(listings.listings));
       })
     })
   })
+
 /* LOGIN */
   $(document).ready(function () {
     $("#login").on("submit", function (event) {
@@ -117,7 +123,6 @@ const createListingElement = function (listing) {
         console.log("currentUser in loop here", currentUser)
         if (currentUser === user.name) {
           return $("<div>").text(user.name).appendTo("#currentUser")
-          // $('li#currentUser').append('<div>${user.name}</div>');
 
         }
       }
@@ -126,15 +131,8 @@ const createListingElement = function (listing) {
   })
   })
 
-  // exports.createListingElement = createListingElement
 
-
-
-
-
-
-
-
+/* to be reserved for timestamping listings */
 // const timeSinceTweet = function (now, before) {
 // 	const timePassed = now - before;
 // 	const minute = 60 * 1000;
