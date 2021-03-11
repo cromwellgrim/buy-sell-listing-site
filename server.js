@@ -66,8 +66,6 @@ app.use("/api/listings", listingsRoutes(db));
 // Warning: avoid creating more routes in this file!
 // Separate them into separate routes files (see above).
 app.get("/", (req, res) => {
-  // const users = usersRoutes(db);
-  // console.log("users var here", users)
   res.render("index");
 });
 
