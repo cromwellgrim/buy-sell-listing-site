@@ -54,10 +54,3 @@
 
 module.exports = {getUsers, getUsersByID}
 
-// router.post("/:id", (req, res) => {
-//   /* post that inserts favourite listings */
-// });
-// router.post("/:id", (req, res) => {
-//   /* post that completes search */
-// });
-// router.get("/:id", (req, res) => {})

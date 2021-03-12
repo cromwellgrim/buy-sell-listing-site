@@ -42,14 +42,5 @@ router.post("/", (req, res) => {
     res.redirect("/");
 });
 
-
-
-// router.post("/listings/delete", (req, res) => {
-//   console.log("listings", listings)
-//   console.log("delete for req.body?", req.body)
-//   delete deleteListing(db, options)
-//   res.redirect('/');
-// });
-
 return router
 }
