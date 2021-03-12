@@ -1,7 +1,7 @@
 
   const getListings = (db, listings) => {
     const queryString = `
-    SELECT  users.id AS user_id, name, listings.id AS listings_id, title, description, price, thumbnail_photo, year, make, model
+    SELECT  users.id AS user_id, name, listings.id AS listing_id, title, description, price, thumbnail_photo, year, make, model
     FROM listings
     JOIN users ON users.id = listings.seller_id
     `;

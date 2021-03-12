@@ -34,9 +34,11 @@ router.post("/search", (req, res) => {
 
 router.post("/", (req, res) => {
   let options = req.body
+
     addListings(db, options)
     .then(listings => {
-      res.send({listings});
+
+      res.send(listings.listings); //previous res.send({listings})
     });
     res.redirect("/");
 });

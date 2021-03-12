@@ -20,7 +20,6 @@ $(document).ready(function () {
       method: "POST",
       url: "/api/listings/listings"
     }).done((listings) => {
-      console.log("listing are here in 23", listings)
       for (let listing of listings) {
         if (currentUser === ('user='+listing.name)) {
           const container = $("<div id='adbox'>")

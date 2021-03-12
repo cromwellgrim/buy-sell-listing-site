@@ -17,21 +17,27 @@ $(document).ready(function () {
       $("<div>").text("Make: " + listing.make).appendTo(textContainer)
       $("<div>").text("Model: " + listing.model).appendTo(textContainer)
       $("<div>").text(listing.description).appendTo(textContainer)
-      container.appendTo($("#listings"))
-    }
-    // for (let listing of listings) {
-    //   const container = $("<div id='adbox'>")
-    //   $("<img class='thumbnail'>").attr("src", listing.thumbnail_photo).appendTo(container)
-    //   $("<div id='adtitle'>").text(listing.title).appendTo(container)
-    //   $("<div>").text("Seller: " + listing.name).appendTo(container)
-    //   $("<div>").text(listing.description).appendTo(container)
-    //   $("<div>").text("$" + listing.price).appendTo(container)
-    //   $("<div>").text("Year: " + listing.year).appendTo(container)
-    //   $("<div>").text("Make: " + listing.make).appendTo(container)
-    //   $("<div>").text("Model: " + listing.model).appendTo(container)
-    //   container.appendTo($("#listings"))
-    // }
 
+      const $favourite = $(`<i id='listing-${listing.listing_id}-${listing.user_id}' class='fas fa-plane'>`)
+      $favourite.appendTo(textContainer)
+      container.appendTo($("#listings"))
+
+
+    $favourite.on("click", function (event) {
+      event.preventDefault()
+      const listingIdString = $(event.target).attr("id")
+      const [listing, listingID, userID] = listingIdString.split("-")
+      console.log("listing id with split", listing, listingID, userID)
+      console.log("hello from favs")
+
+      $.ajax({
+        method: "POST",
+        url: "/api/listings/listings"
+      })
+
+
+    });
+    }
   })
 })
 
@@ -124,29 +130,6 @@ const createListingElement = function (listing) {
       })
     })
   })
-
-/* LOGIN */
-  // $(document).ready(function () {
-  //   $("#login").on("submit", function (event) {
-  //     event.preventDefault();
-  //     let currentUser = $("#login-text").val();
-  //   $.ajax({
-  //     method: "GET",
-  //     url: "/api/users",
-  //     data: $(this).serialize(),
-  //   }).then((users) => {
-  //     for (let user of users) {
-  //       console.log("user.name in-for loop", user.name)
-  //       console.log("currentUser in loop here", currentUser)
-  //       if (currentUser === user.name) {
-  //         return $("<div id='username'>").text(user.name).appendTo("#currentUser")
-
-  //       }
-  //     }
-
-  //   })
-  // })
-  // })
 
 
 /* to be reserved for timestamping listings */
