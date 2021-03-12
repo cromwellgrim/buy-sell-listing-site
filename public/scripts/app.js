@@ -7,16 +7,30 @@ $(document).ready(function () {
 
     for (let listing of listings) {
       const container = $("<div id='adbox'>")
-      $("<div id='adtitle'>").text(listing.title).appendTo(container)
-      $("<div>").text("Seller: " + listing.name).appendTo(container)
-      $("<div>").text(listing.description).appendTo(container)
-      $("<div>").text("$" + listing.price).appendTo(container)
-      $("<img class='thumbnail'>").attr("src", listing.thumbnail_photo).appendTo(container)
-      $("<div>").text("Year: " + listing.year).appendTo(container)
-      $("<div>").text("Make: " + listing.make).appendTo(container)
-      $("<div>").text("Model: " + listing.model).appendTo(container)
+      const imgContainer = $("<div id='imgContainer'>").appendTo(container)
+      const textContainer = $("<div id='textContainer'>").appendTo(container)
+      $("<div id='adtitle'>").text(listing.title).appendTo(imgContainer)
+      $("<img class='thumbnail'>").attr("src", listing.thumbnail_photo).appendTo(imgContainer)
+      $("<div>").text("Seller: " + listing.name).appendTo(textContainer)
+      $("<div>").text("Price: $" + listing.price).appendTo(textContainer)
+      $("<div>").text("Year: " + listing.year).appendTo(textContainer)
+      $("<div>").text("Make: " + listing.make).appendTo(textContainer)
+      $("<div>").text("Model: " + listing.model).appendTo(textContainer)
+      $("<div>").text(listing.description).appendTo(textContainer)
       container.appendTo($("#listings"))
     }
+    // for (let listing of listings) {
+    //   const container = $("<div id='adbox'>")
+    //   $("<img class='thumbnail'>").attr("src", listing.thumbnail_photo).appendTo(container)
+    //   $("<div id='adtitle'>").text(listing.title).appendTo(container)
+    //   $("<div>").text("Seller: " + listing.name).appendTo(container)
+    //   $("<div>").text(listing.description).appendTo(container)
+    //   $("<div>").text("$" + listing.price).appendTo(container)
+    //   $("<div>").text("Year: " + listing.year).appendTo(container)
+    //   $("<div>").text("Make: " + listing.make).appendTo(container)
+    //   $("<div>").text("Model: " + listing.model).appendTo(container)
+    //   container.appendTo($("#listings"))
+    // }
 
   })
 })
@@ -26,10 +40,15 @@ $(document).ready(function() {
   // Transition effect for navbar
   $(window).scroll(function() {
     // checks if window is scrolled more than 500px, adds/removes solid class
-    if($(this).scrollTop() > 500) {
+    if($(this).scrollTop() > 180) {
       $('.navbar').addClass('solid');
     } else {
       $('.navbar').removeClass('solid');
+    }
+    if($(this).scrollTop() > 200) {
+      $('.search-container').fadeOut()
+    } else {
+      $('.search-container').fadeIn()
     }
   });
 });
@@ -44,7 +63,6 @@ $(document).ready(function () {
 
 /* html article creater for each listing */
 const createListingElement = function (listing) {
-    console.log("at start of func", listing)
     const $listing = $(`
     <article class="listing-article">
     <header class="listing-container-header">
@@ -100,7 +118,6 @@ const createListingElement = function (listing) {
         method: "POST",
         data: $(this).serialize(),
       }).then((listings) => {
-        console.log("listings in ajax", listings)
         $("#search").val("")
         $("#page-title").replaceWith("<p id='page-title'>Searched Listings</p>")
         renderListings(Object.values(listings.listings));
@@ -109,27 +126,27 @@ const createListingElement = function (listing) {
   })
 
 /* LOGIN */
-  $(document).ready(function () {
-    $("#login").on("submit", function (event) {
-      event.preventDefault();
-      let currentUser = $("#login-text").val();
-    $.ajax({
-      method: "GET",
-      url: "/api/users",
-      data: $(this).serialize(),
-    }).then((users) => {
-      for (let user of users) {
-        console.log("user.name in-for loop", user.name)
-        console.log("currentUser in loop here", currentUser)
-        if (currentUser === user.name) {
-          return $("<div>").text(user.name).appendTo("#currentUser")
+  // $(document).ready(function () {
+  //   $("#login").on("submit", function (event) {
+  //     event.preventDefault();
+  //     let currentUser = $("#login-text").val();
+  //   $.ajax({
+  //     method: "GET",
+  //     url: "/api/users",
+  //     data: $(this).serialize(),
+  //   }).then((users) => {
+  //     for (let user of users) {
+  //       console.log("user.name in-for loop", user.name)
+  //       console.log("currentUser in loop here", currentUser)
+  //       if (currentUser === user.name) {
+  //         return $("<div id='username'>").text(user.name).appendTo("#currentUser")
 
-        }
-      }
+  //       }
+  //     }
 
-    })
-  })
-  })
+  //   })
+  // })
+  // })
 
 
 /* to be reserved for timestamping listings */

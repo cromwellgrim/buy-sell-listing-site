@@ -10,9 +10,8 @@ $(document).ready(function () {
     }
   })
   $("#mylistingslink").on("click", function (event) {
-    console.log("my listings link is here")
      event.preventDefault();
-     let currentUser = $("#currentUser").val();
+     let currentUser = document.cookie
      $("#list").empty()
      $("#page-title").replaceWith("<p id='page-title'>My Listings</p>")
 
@@ -21,19 +20,24 @@ $(document).ready(function () {
       method: "POST",
       url: "/api/listings/listings"
     }).done((listings) => {
-
+      console.log("listing are here in 23", listings)
       for (let listing of listings) {
-        if (currentUser === listing.name) {
-        const container = $("<div id='adbox'>")
-        $("<div id='adtitle'>").text(listing.title).appendTo(container)
-        $("<div>").text("Seller: " + listing.name).appendTo(container)
-        $("<div>").text(listing.description).appendTo(container)
-        $("<div>").text("$" + listing.price).appendTo(container)
-        $("<img class='thumbnail'>").attr("src", listing.thumbnail_photo).appendTo(container)
-        $("<div>").text("Year: " + listing.year).appendTo(container)
-        $("<div>").text("Make: " + listing.make).appendTo(container)
-        $("<div>").text("Model: " + listing.model).appendTo(container)
-        container.appendTo($("#list"))
+        if (currentUser === ('user='+listing.name)) {
+          const container = $("<div id='adbox'>")
+          const imgContainer = $("<div id='imgContainer'>").appendTo(container)
+          const textContainer = $("<div id='textContainer'>").appendTo(container)
+          // const deleteForm = $("<form action='/api/listings/listings/delete' method='POST' id='delete-listing-form'>").appendTo(container)
+          $("<div id='adtitle'>").text(listing.title).appendTo(imgContainer)
+          $("<img class='thumbnail'>").attr("src", listing.thumbnail_photo).appendTo(imgContainer)
+          $("<div>").text("Seller: " + listing.name).appendTo(textContainer)
+          $("<div>").text("Price: $" + listing.price).appendTo(textContainer)
+          $("<div>").text("Year: " + listing.year).appendTo(textContainer)
+          $("<div>").text("Make: " + listing.make).appendTo(textContainer)
+          $("<div>").text("Model: " + listing.model).appendTo(textContainer)
+          $("<div>").text("ID: " + listing.listings_id).appendTo(textContainer)
+          $("<div>").text(listing.description).appendTo(textContainer)
+          $("<button onclick='removeElement()' type='submit id='delete-listing-button' class='button'>").text('DELETE').appendTo(textContainer)
+          container.appendTo($("#list"))
         }
       }
     })
