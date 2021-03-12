@@ -41,12 +41,12 @@ app.use(cookieParser())
 // Note: Feel free to replace the example routes below with your own
 const usersRoutes = require("./routes/users_router.js");
 const listingsRoutes = require("./routes/listings_router.js");
-
+const favouriteRoutes = require("./routes/favourites_router.js")
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
 app.use("/api/users", usersRoutes(db));
-
 app.use("/api/listings", listingsRoutes(db));
+app.use("/api/favourites", favouriteRoutes(db));
 
 app.get("/", (req, res) => {
   let user = req.cookies.user
@@ -57,15 +57,6 @@ app.get("/", (req, res) => {
     res.render("index", templateVars)
   }
 });
-
-
-// logins user
-// app.get("/login", (req, res) => {
-//   let user = req.cookies.user
-//   if(user) {
-//     res.redirect("/")
-//   }
-// })
 
 app.post("/login", (req, res) => {
   res.cookie("user", req.body.user)

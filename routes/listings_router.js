@@ -2,7 +2,6 @@ const express = require('express');
 const { getListings, getListingsByID } = require('./listings')
 const { searchListings } = require('./searchdb')
 const { addListings } = require('./addListing')
-// const { deleteListing } = require("./deleteListing.js")
 
 
 module.exports = function(db) {
@@ -42,6 +41,8 @@ router.post("/", (req, res) => {
     });
     res.redirect("/");
 });
+
+
 
 // router.post("/listings/delete", (req, res) => {
 //   console.log("listings", listings)

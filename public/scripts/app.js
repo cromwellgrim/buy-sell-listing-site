@@ -17,7 +17,7 @@ $(document).ready(function () {
       $("<div>").text("Make: " + listing.make).appendTo(textContainer)
       $("<div>").text("Model: " + listing.model).appendTo(textContainer)
       $("<div>").text(listing.description).appendTo(textContainer)
-
+      $("<textarea placeholder='contact the seller'>").appendTo(container)
       const $favourite = $(`<i id='listing-${listing.listing_id}-${listing.user_id}' class='fas fa-plane'>`)
       $favourite.appendTo(textContainer)
       container.appendTo($("#listings"))
@@ -26,18 +26,49 @@ $(document).ready(function () {
     $favourite.on("click", function (event) {
       event.preventDefault()
       const listingIdString = $(event.target).attr("id")
-      const [listing, listingID, userID] = listingIdString.split("-")
-      console.log("listing id with split", listing, listingID, userID)
-      console.log("hello from favs")
+      const [listing, listing_id, user_id] = listingIdString.split("-")
+      const favouritesInfo = [listing, listing_id, user_id]
+      console.log("fav info", favouritesInfo)
 
       $.ajax({
         method: "POST",
-        url: "/api/listings/listings"
+        url: "/api/favourites",
+        data: {listing_id: listing_id, user_id: user_id}
       })
-
 
     });
     }
+  })
+})
+
+/* grabs a users favourites to put on the page */
+$(document).ready(function () {
+  $("#favouritelistingslink").on("click", function (event) {
+    event.preventDefault();
+    console.log("favourite listings link")
+    $("#list").empty()
+    $("#page-title").replaceWith("<p id='page-title'>Favourite Listings</p>")
+    $.ajax({
+      url: "/api/favourites",
+      method: "GET",
+    }).done((listings) => {
+      console.log("listings on favourites", listings)
+      for (let listing of listings) {
+          const container = $("<div id='adbox'>")
+          const imgContainer = $("<div id='imgContainer'>").appendTo(container)
+          const textContainer = $("<div id='textContainer'>").appendTo(container)
+          $("<div id='adtitle'>").text(listing.title).appendTo(imgContainer)
+          $("<img class='thumbnail'>").attr("src", listing.thumbnail_photo).appendTo(imgContainer)
+          $("<div>").text("Seller: " + listing.name).appendTo(textContainer)
+          $("<div>").text("Price: $" + listing.price).appendTo(textContainer)
+          $("<div>").text("Year: " + listing.year).appendTo(textContainer)
+          $("<div>").text("Make: " + listing.make).appendTo(textContainer)
+          $("<div>").text("Model: " + listing.model).appendTo(textContainer)
+          $("<div>").text("ID: " + listing.listings_id).appendTo(textContainer)
+          $("<div>").text(listing.description).appendTo(textContainer)
+          container.appendTo($("#list"))
+      }
+    })
   })
 })
 
@@ -114,7 +145,9 @@ const createListingElement = function (listing) {
     });
   };
 
+/////////////
 /* SEARCH */
+////////////
   $(document).ready(function () {
     getListingsForSearch();
     $("#search").on("submit", function (event) {
