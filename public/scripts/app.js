@@ -167,6 +167,8 @@ const createListingElement = function (listing) {
   })
 
 
+
+
 /* to be reserved for timestamping listings */
 // const timeSinceTweet = function (now, before) {
 // 	const timePassed = now - before;
@@ -184,3 +186,22 @@ const createListingElement = function (listing) {
 // 		return "This tweet happened a long time ago";
 // 	}
 // }
+
+/* toggle stretch goal 2: sends user back to top of screen */
+$(document).ready(function () {
+	$(".to-the-top").hide();
+
+	$(window).on("scroll", function (event) {
+		const showArrow = 300;
+		if ($(this).scrollTop() > showArrow) {
+			$(".to-the-top").fadeIn();
+		} else {
+			$(".to-the-top").fadeOut();
+		}
+	});
+
+	$(".to-the-top").on("click", function (event) {
+		$("html, body").animate({ scrollTop: 0 }, 800);
+		return false;
+	});
+});

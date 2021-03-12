@@ -280,3 +280,21 @@ input {
     align-self: auto;
 }
 
+/* sends user to top of screen */
+.to-the-top {
+  justify-content: center;
+  position: fixed;
+  color: black;
+  bottom: 30px;
+  right: 30px;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  transition: opacity 0.1s ease-out;
+  background-color: transparent;
+  background-image: url("https://www.flaticon.com/svg/vstatic/svg/776/776503.svg?token=exp=1615567525~hmac=29c6e5c489ab3dc452aa85cc92994b02");
+}
+
+.to-the-top:hover {
+  opacity: 0.7;
+}
