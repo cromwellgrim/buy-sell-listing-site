@@ -11,7 +11,6 @@ const addListings = function(db, listings) {
 
   return db.query(queryString, queryParams)
   .then((res) => {
-    console.log("res in then", res)
     return res.rows[0]})
   .catch((err) => {
     console.log("err", err)

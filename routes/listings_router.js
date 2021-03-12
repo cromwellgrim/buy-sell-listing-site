@@ -2,7 +2,7 @@ const express = require('express');
 const { getListings, getListingsByID } = require('./listings')
 const { searchListings } = require('./searchdb')
 const { addListings } = require('./addListing')
-
+// const { deleteListing } = require("./deleteListing.js")
 
 
 module.exports = function(db) {
@@ -16,7 +16,6 @@ router.get("/", (req, res) => {
 });
 
 router.post("/listings", (req, res) => {
-  console.log("post listings is here")
   // getListingsByID(db, req.params.id)
   getListings(db)
     .then(listingID => {
@@ -39,7 +38,15 @@ router.post("/", (req, res) => {
     .then(listings => {
       res.send({listings});
     });
+    res.redirect("/");
 });
+
+// router.post("/listings/delete", (req, res) => {
+//   console.log("listings", listings)
+//   console.log("delete for req.body?", req.body)
+//   delete deleteListing(db, options)
+//   res.redirect('/');
+// });
 
 return router
 }
