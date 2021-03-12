@@ -7,39 +7,30 @@
   background: url("https://atmosphere.copernicus.eu/sites/default/files/styles/hero_image_extra_large_2x/public/2020-06/iStock-484828810.jpg") no-repeat center center;
   background-size: cover;
   height: 570px;
-  margin-top: -20px;
+  margin-top: -30px;
+}
 
-  .heading {
-     color: white;
-     text-align: center;
-     padding-top: 200px;
-  }
+.btn {
+  background-color: transparent;
+  color: white;
+  border: 1px solid white;
+  padding: 10px;
+  font-size: 1.2em;
 
-  p {
-     text-align: center;
-     padding: 20px 60px;
-
-      .btn {
-        background-color: transparent;
-        color: white;
-        border: 1px solid white;
-        padding: 10px;
-        font-size: 1.2em;
-
-         &:hover {
-            color:  rgb(76, 103, 112);
-            border-color: #C57ED3;
-         }
-     }
-  }
+   &:hover {
+      color:  rgb(76, 103, 112);
+      border-color: #C57ED3;
+   }
 }
 
 .navbar {
  display: flex;
- flex-direction: column;
- justify-content:space-around;
+ flex-direction: row;
+ justify-content:flex-start;
  position: fixed;
  height: 80px;
+ width: 100%;
+ padding-top: 30px;
  background-color: transparent;
  border: none;
  font-family: 'Damion', cursive;
@@ -48,6 +39,11 @@
  transition: background-color 1s ease 0s;
 }
 
+.nav-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
 
 .navbar-default {
 
@@ -64,37 +60,52 @@
  .navbar-nav {
    display: flex;
    flex-direction: row;
+   justify-content: flex-start;
 
 
 
      > a {
        color: white;
        margin: 10px 5px 5px 5px;
-
+      text-decoration: none;
      }
-     > a:hover, > a:active, > a:focus {
-       color: #ffffff;
-       border: 1px solid #ffffff;
-     }
-     > a:visited {
-       color: #ffffff;
-       text-decoration: none;
-     }
-
-
-
-   > .active {
-
-     > a, > a:hover, > a:focus {
-       background-color: transparent;
-       color: #C57ED3;
-     }
-
-   }
 
  } //end .navbar-nav
 
 } //end .navbar-default
+
+/* Solid class attached on scroll past first section */
+
+.navbar.solid {
+  background-color: rgb(63, 147, 224);
+  transition: background-color 1s ease 0s;
+  box-shadow: 0 0 4px grey;
+
+    .navbar-brand {
+      color: #ffffff;
+      transition: color 1s ease 0s;
+    }
+
+    .navbar-nav {
+
+          > a {
+            color: #ffffff;
+            transition: color 1s ease 0s;
+          }
+
+    } //end .navbar-nav
+
+ }
+
+ .nav-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  width: 852px;
+  background: transparent;
+  margin: 0 auto;
+  padding: 16px;
+}
 
 .hidden {
   visibility: hidden;
@@ -107,72 +118,29 @@
 .sellerLinks {
   font-size: 20px;
   color: white;
-
-}
-/* Solid class attached on scroll past first section */
-
-.navbar.solid {
- background-color: rgb(76, 103, 112);
- transition: background-color 1s ease 0s;
- box-shadow: 0 0 4px grey;
-
-   .navbar-brand {
-     color: #ffffff;
-     transition: color 1s ease 0s;
-   }
-
-   .navbar-nav {
-
-      > li {
-
-         > a {
-           color: #ffffff;
-           transition: color 1s ease 0s;
-         }
-
-      } //end li
-
-   } //end .navbar-nav
-
+  background: transparent;
+  border: none;
 }
 
-// nav {
-//   display: flex;
-//   flex-direction: row;
-//   justify-content: flex-start;
-//   overflow: hidden;
-//   background-color: black;
-//   position: fixed;
-//   top: 0;
-//   width: 100%;
-//   a {
-//     color: #f2f2f2;
-//     text-decoration: none;
-//     padding: 14px;
-//     &:hover {
-//       background-color: #111;
-//     }
-//   }
-//   ul {
-//     display: flex;
-//     justify-self: flex-end;
-//     flex-direction: row;
-//     justify-content: space-between;
-//     text-align: center;
-//     list-style-type: none;
-//     margin: 0;
-//     padding: 15px;
-//     li {
-//       display: inline;
-//       font-family: "Fira Sans", sans-serif;
-//       font-size: 17px;
-//     }
-//   }
-// }
+#page-title {
+  display: flex;
+  justify-content: center;
+  font-family: 'Damion', cursive;
+  font-size: 50px;
+  color: white;
+}
 
-.content {
-  text-align: center;
+#login {
+  padding-top: 25px;
+  align-content: center;
+}
 
+.airplane-nav{
+  display: flex;
+  font-family: 'Damion', cursive;
+  font-size: 45px;
+  justify-content: center;
+  align-items: center;
 }
 
 body {
@@ -192,6 +160,7 @@ body {
   align-items: center;
   margin: 2px;
   padding: 2px;
+
 }
 
 .thumbnail {
@@ -203,7 +172,8 @@ body {
 
 #adbox {
   border: black solid 2px;
-  background-color: bisque;
+  border-radius: 25px;
+  background-color: rgb(248, 248, 248);
   margin: 80px;
   padding: 1em;
   display: flex;
@@ -218,24 +188,29 @@ body {
 }
 
 #body {
-  background-color: rgb(194, 218, 226);
+  background-color: #000000;
+  background-image: url("https://www.transparenttextures.com/patterns/stardust.png");
 
 }
 
 #adtitle {
-  font-size: 20px;
+  font-family: 'Damion', cursive;
+  font-size: 30px;
   font-weight: 600;
+  display: flex;
+  align-items: center;
+}
+
+#textContainer {
+  padding: 2em;
+}
+
+#imgContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 //End of changes made to layout by Gavin
-
-.nav-container {
-  display: flex;
-  flex-direction: row;
-  width: 852px;
-  background: transparent;
-  margin: 0 auto;
-  padding: 16px;
-}
 
 
 .wrapper {
@@ -252,6 +227,12 @@ body {
   justify-content: flex-start;
   align-content: stretch;
   align-items: flex-start;
+  padding-top: 25px;
+}
+
+.search-bar {
+  padding-top: 140px;
+  margin: 25px;
 }
 
 input {
@@ -264,6 +245,7 @@ input {
 }
 
 .button {
+  font-family: 'Damion', cursive;
   padding: 8px 16px;
   min-height: 48px;
   min-width: 10px;
