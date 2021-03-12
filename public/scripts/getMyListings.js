@@ -33,7 +33,6 @@ $(document).ready(function () {
           $("<div>").text("Year: " + listing.year).appendTo(textContainer)
           $("<div>").text("Make: " + listing.make).appendTo(textContainer)
           $("<div>").text("Model: " + listing.model).appendTo(textContainer)
-          $("<div>").text("ID: " + listing.listings_id).appendTo(textContainer)
           $("<div>").text(listing.description).appendTo(textContainer)
           $("<button onclick='removeElement()' type='submit id='delete-listing-button' class='button'>").text('DELETE').appendTo(textContainer)
           container.appendTo($("#list"))

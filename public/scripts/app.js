@@ -17,12 +17,16 @@ $(document).ready(function () {
       $("<div>").text("Make: " + listing.make).appendTo(textContainer)
       $("<div>").text("Model: " + listing.model).appendTo(textContainer)
       $("<div>").text(listing.description).appendTo(textContainer)
-      $("<a href='#' onclick='toggle_visibility('foo')'>").text("Contact Seller").appendTo(textContainer)
-      $("<div id='foo'>").text("(604)235-7249").appendTo(textContainer)
-      $("<a href='contact the seller'>").appendTo(textContainer)
+      $("<a href='#' id='contact'>").text("Contact Seller").appendTo(textContainer)
+      $("<div id='phone' class='hidden'>").text("(604)235-7249").appendTo(textContainer)
       const $favourite = $(`<i id='listing-${listing.listing_id}-${listing.user_id}' class='fas fa-plane'>`)
       $favourite.appendTo(textContainer)
       container.appendTo($("#listings"))
+
+      // $('#contact').on('click', function(event) {
+      //   event.preventDefault()
+      //   $("#phone").hide().show()
+      // })
 
 
     $favourite.on("click", function (event) {
@@ -66,7 +70,6 @@ $(document).ready(function () {
           $("<div>").text("Year: " + listing.year).appendTo(textContainer)
           $("<div>").text("Make: " + listing.make).appendTo(textContainer)
           $("<div>").text("Model: " + listing.model).appendTo(textContainer)
-          $("<div>").text("ID: " + listing.listings_id).appendTo(textContainer)
           $("<div>").text(listing.description).appendTo(textContainer)
           container.appendTo($("#list"))
       }
@@ -95,6 +98,7 @@ $(document).ready(function() {
 /* this reveals user links and hides the login button */
 $(document).ready(function () {
 	$(".login-button").on("click", function (event) {
+    event.preventDefault();
     $(".sellerLinks").removeClass("hidden").addClass("visible");
     $("#login").toggle("show");
 	});
@@ -103,29 +107,35 @@ $(document).ready(function () {
 /* html article creater for each listing */
 const createListingElement = function (listing) {
     const $listing = $(`
-    <article class="listing-article">
-    <header class="listing-container-header">
-    <p>${listing.title}</p
-    <p>${listing.price}</p>
-    <p>${listing.name}</p>
-    <form action="/listings/:id" method="GET" class="singleListing">
-    <button type="submit" class="button">Contact Seller</button>
-    </form>
-    <div class="listing-pic-name">
-    <img class="listing-pic" src="${listing.thumbnail_photo}"/>
-    <p>${listing.make}</p>
-    <p>${listing.model}</p>
-    <p>${listing.year}</p>
+    <div id='adbox'>
+
+      <div id='imgContainer'>
+        <div id='adtitle'>${listing.title}</div>
+        <img class='thumbnail' src="${listing.thumbnail_photo}" />
+      </div>
+
+      <div id='textContainer'>
+        <div>Seller: ${listing.name}</div>
+        <div>Price: $${listing.price}</div>
+        <div>Year: ${listing.year}</div>
+        <div>Make: ${listing.make}</div>
+        <div>Model: ${listing.model}</div>
+        <div>${listing.description}</div>
+        <a href='#' id='contact'>Contact Seller</a>
+        <div id='phone' class='hidden'>(604)235-7249</div>
+      </div>
+
     </div>
-    </header>
-    <p>${listing.description}</p>
-    <hr>
-    <footer class="listing-container-footer">
-    </footer>
-    </article>
     `);
     return $listing;
   };
+
+/* This toggles the visibility of the seller contact info */
+$(document).ready(function () {
+  $("#contact").on("click", function (event) {
+    $("#phone").removeClass("hidden").addClass("visible");
+  })
+})
 
 /* moves through the listings and uses createListingElement function on each listing - part of SEARCH */
   const renderListings = function (listings) {

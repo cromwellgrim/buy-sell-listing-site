@@ -27,8 +27,11 @@
       <nav class="navbar navbar-default">
         <div class="nav-container">
           <!-- navbar with user links that appear after login -->
-          <div class="nav navbar-nav">
-            <a href ="/" id="homelink"> Home</a>
+          <div class="navbar-nav">
+            <form action="/" method="GET" id="homelink">
+              <button type="submit" class="sellerLinks">AIRJIJI</button>
+            </form>
+            <!-- <a href ="/" id="homelink"> Home</a> -->
                   <form action="api/listings/listings" method="POST" id="mylistingslink">
                     <button type="submit" class="sellerLinks">My Listings</button>
                   </form>
