@@ -1,19 +1,19 @@
 -- Users table seeds here (Example)
-INSERT INTO users (name, is_seller) VALUES ('Elon Musk', TRUE);
+INSERT INTO users (name, is_seller) VALUES ('Elon', TRUE);
 
 INSERT INTO users (name, is_seller) VALUES ('Baloo', TRUE);
 
-INSERT INTO users (name, is_seller) VALUES ('Jean Batten', TRUE);
+INSERT INTO users (name, is_seller) VALUES ('Jean', TRUE);
 
-INSERT INTO users (name, is_seller) VALUES ('Han Solo', TRUE);
+INSERT INTO users (name, is_seller) VALUES ('Han', TRUE);
 
-INSERT INTO users (name, is_seller) VALUES ('Pete Mitchell', TRUE);
+INSERT INTO users (name, is_seller) VALUES ('Pete', TRUE);
 
-INSERT INTO users (name, is_seller) VALUES ('Raisa Aronova', TRUE);
+INSERT INTO users (name, is_seller) VALUES ('Raisa', TRUE);
 
-INSERT INTO users (name, is_seller) VALUES ('Samuel L. Jackson', TRUE);
+INSERT INTO users (name, is_seller) VALUES ('SamueL', TRUE);
 
-INSERT INTO users (name, is_seller) VALUES ('Sully Sullenberger', TRUE);
+INSERT INTO users (name, is_seller) VALUES ('Sully', TRUE);
 
 INSERT INTO users (name, is_seller) VALUES ('Hikaru Sulu', FALSE);
 
