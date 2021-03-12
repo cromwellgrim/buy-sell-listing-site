@@ -9,7 +9,10 @@ const bodyParser = require("body-parser");
 const sass       = require("node-sass-middleware");
 const app        = express();
 const morgan     = require('morgan');
-
+const cookieParser = require("cookie-parser");
+const Cookies = require('js-cookie')
+global.Cookies = require('js-cookie'); //assign module to variable called "Cookies"
+Cookies.set('user', 'Baloo');
 
 // PG database client/connection setup
 const { Pool } = require('pg');
@@ -32,41 +35,41 @@ app.use("/styles", sass({
   outputStyle: 'expanded'
 }));
 app.use(express.static("public"));
-
+app.use(cookieParser())
 
 // Separated Routes for each Resource
 // Note: Feel free to replace the example routes below with your own
 const usersRoutes = require("./routes/users_router.js");
 const listingsRoutes = require("./routes/listings_router.js");
 
-
-
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
 app.use("/api/users", usersRoutes(db));
 
-// app.use("/users/:id", usersRoutes(db));
-
 app.use("/api/listings", listingsRoutes(db));
 
-
-
-
-// app.use("/listings/:id", listingsRoutes(db));
-
-
-// app.get('/login/:id', (req, res) => {
-//   req.session.user_id = req.params.id;
-//   res.redirect('/');
-// });
-// Note: mount other resources here, using the same pattern above
-
-
-// Home page
-// Warning: avoid creating more routes in this file!
-// Separate them into separate routes files (see above).
 app.get("/", (req, res) => {
-  res.render("index");
+  let user = req.cookies.user
+  const templateVars = { user: user }
+  if (!user) {
+  res.render("index", templateVars);
+  } else {
+    res.render("index", templateVars)
+  }
+});
+
+
+// logins user
+// app.get("/login", (req, res) => {
+//   let user = req.cookies.user
+//   if(user) {
+//     res.redirect("/")
+//   }
+// })
+
+app.post("/login", (req, res) => {
+  res.cookie("user", req.body.user)
+  res.redirect("/")
 });
 
 app.listen(PORT, () => {
