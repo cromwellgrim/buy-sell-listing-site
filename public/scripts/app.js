@@ -103,7 +103,7 @@ $(document).ready(function () {
     $("#login").toggle("show");
 	});
 });
-
+//test word//
 /* html article creater for each listing */
 const createListingElement = function (listing) {
     const $listing = $(`
