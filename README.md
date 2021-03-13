@@ -12,10 +12,10 @@ That's where Airjiji comes in, buy a used airplane or spaceship from us and you'
 4. Go to <http://localhost:8080/> in your browser.
 
 ## Screenshots
-["airjiji main page"](https://github.com/cromwellgrim/buy-sell-listing-site/blob/master/images/airjiji%20main.png)
-["airjiji create"](https://github.com/cromwellgrim/buy-sell-listing-site/blob/master/images/airjiji%20create.png)
-["airjiji favourites"](https://github.com/cromwellgrim/buy-sell-listing-site/blob/master/images/airjiji%20favourites.png)
-["airjiji search"](https://github.com/cromwellgrim/buy-sell-listing-site/blob/master/images/airjiji%20search.png)
+["airjiji main page"]("https://github.com/cromwellgrim/buy-sell-listing-site/blob/master/images/airjiji%20main.png")
+["airjiji create"]("https://github.com/cromwellgrim/buy-sell-listing-site/blob/master/images/airjiji%20create.png")
+["airjiji favourites"]("https://github.com/cromwellgrim/buy-sell-listing-site/blob/master/images/airjiji%20favourites.png")
+["airjiji search"]("https://github.com/cromwellgrim/buy-sell-listing-site/blob/master/images/airjiji%20search.png")
 
 ## Dependencies
 
